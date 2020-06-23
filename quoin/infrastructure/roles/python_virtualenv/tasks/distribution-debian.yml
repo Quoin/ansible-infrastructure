@@ -1,0 +1,9 @@
+---
+- name: 'Debian :: install Python virtualenv'
+  package:
+    name: '{{ item }}'
+    state: present
+  become: yes
+  with_items:
+  - python-virtualenv
+  - virtualenv
