@@ -1,6 +1,0 @@
----
-qi_docker_package: 'docker-ce'
-qi_docker_virtualenv: '/opt/docker/virtualenv'
-qi_docker_virtualenv_site_packages: yes
-qi_docker_pip_docker_package: 'docker==2.4.2'
-qi_docker_pip_docker_compose_package: 'docker-compose==1.14.0'

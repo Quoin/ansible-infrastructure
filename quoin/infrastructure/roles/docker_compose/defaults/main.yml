@@ -1,4 +1,0 @@
----
-qi_docker_compose_folder: '/opt/docker'
-qi_docker_compose_files:
-- '{{ qi_docker_compose_folder }}/docker-compose.yml'

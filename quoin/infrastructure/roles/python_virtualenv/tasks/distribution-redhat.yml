@@ -1,6 +1,0 @@
----
-- name: 'Fedora :: install Python virtualenv'
-  package:
-    name: python-virtualenv
-    state: present
-  become: yes

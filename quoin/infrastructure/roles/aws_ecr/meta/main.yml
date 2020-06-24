@@ -3,9 +3,6 @@ galaxy_info:
   min_ansible_version: '2.6'
 
 dependencies:
-
-- name: 'install_docker'
-  src: './install_docker'
-
-- name: 'install_awscli2'
-  src: './install_awscli2'
+- role: 'quoin.infrastructure.install_docker'
+- role: 'quoin.infrastructure.install_awscli2'
+ 
