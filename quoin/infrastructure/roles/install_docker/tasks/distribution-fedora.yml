@@ -14,7 +14,7 @@
 
 - name: 'Fedora :: install Docker'
   package:
-    name: 'docker-ce'
+    name: '{{ qi_install_docker_docker_package }}'
     state: 'present'
   become: yes
 
