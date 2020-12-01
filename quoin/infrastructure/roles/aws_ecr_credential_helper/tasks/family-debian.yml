@@ -1,0 +1,5 @@
+---
+- name: 'Debian :: install `amazon-ecr-credential-helper`'
+  package:
+    name: 'amazon-ecr-credential-helper'
+  become: yes
