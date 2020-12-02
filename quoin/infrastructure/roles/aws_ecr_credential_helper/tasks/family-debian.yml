@@ -15,6 +15,7 @@
 
 - name: 'Debain :: Major Version Stretch or Earlier :: install amazon-ecr-credential-helper with go'
   environment:
+    GOPATH: '{{ ansible_env.HOME }}/go'
     GOBIN: '/usr/local/bin'
   command: |
     go get -u github.com/awslabs/amazon-ecr-credential-helper/ecr-login/cli/docker-credential-ecr-login
