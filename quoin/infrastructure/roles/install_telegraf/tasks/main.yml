@@ -1,11 +1,7 @@
 ---
-- include_tasks: 'distribution-debian.yml'
+- include_tasks: 'family-debian.yml'
   when: |
-    ansible_distribution == 'Debian'
-
-- include_tasks: 'distribution-ubuntu.yml'
-  when: |
-    ansible_distribution == 'Ubuntu'
+    ansible_os_family == 'Debian'
 
 - name: 'install Telegraf'
   package:
