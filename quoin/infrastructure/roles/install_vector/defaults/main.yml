@@ -1,0 +1,8 @@
+qi_install_vector_apt_packages:
+- 'apt-transport-https'
+- 'ca-certificates'
+- 'debian-keyring'
+- 'debian-archive-keyring'
+- 'gnupg'
+qi_install_vector_aws_region: 'us-east-1'
+qi_install_vector_stream_name: 'host'
