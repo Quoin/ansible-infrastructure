@@ -1,46 +1,8 @@
 ---
-- name: 'install apt-transport-https, ca-certificates, debian-keyring, debian-archive-keyring, and gnupg'
-  package:
-    name: '{{ item }}'
-    state: 'present'
-  with_items:
-  - 'apt-transport-https'
-  - 'ca-certificates'
-  - 'debian-keyring'
-  - 'debian-archive-keyring'
-  - 'gnupg'
-  become: yes
+- include_tasks: 'distribution-debian.yml'
+  when: |
+    ansible_distribution == 'Debian'
 
-- name: 'install Vector APT key'
-  apt_key:
-    url: 'https://repositories.timber.io/public/vector/gpg.3543DB2D0A2BC4B8.key'
-  become: yes
-
-- name: 'install Vector APT repository'
-  apt_repository:
-    filename: '/etc/apt/sources.list.d/timber-vector.list'
-    repo: 'deb https://repositories.timber.io/public/vector/deb/debian buster main'
-  become: yes
-
-- name: 'install Vector'
-  package:
-    name: 'vector'
-    state: 'present'
-  become: yes
-
-- name: 'create Vector configuration file'
-  template:
-    src: 'vector.toml.j2'
-    dest: '/etc/vector/vector.toml'
-    mode: 'u=rw,go=r'
-  become: yes
-  notify: 'restart_vector'
-
-- name: 'start Vector'
-  service:
-    name: 'vector'
-    enabled: yes
-    state: 'started'
-  become: yes
-
-- meta: 'flush_handlers'
+- include_tasks: 'distribution-ubuntu.yml'
+  when: |
+    ansible_distribution == 'Ubuntu'
