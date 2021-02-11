@@ -11,6 +11,35 @@
   when: |
     ansible_distribution == 'Ubuntu'
 
+- name: 'install Docker'
+  package:
+    name: '{{ qi_install_docker_docker_package }}'
+    state: 'present'
+  become: yes
+
+- name: 'create the `/etc/docker` directory'
+  file:
+    path: '/etc/docker'
+    mode: 'u=rwx,go=rx'
+    state: 'directory'
+  become: yes
+
+- name: 'create the /etc/docker/daemon.json file'
+  copy:
+    dest: '/etc/docker/daemon.json'
+    content: '{{ qi_install_docker_daemon_json_content }}'
+  become: yes
+  notify: 'restart_docker'
+
+- meta: 'flush_handlers'
+
+- name: 'start Docker'
+  service:
+    name: 'docker'
+    enabled: yes
+    state: 'started'
+  become: yes
+
 - name: 'add `{{ ansible_user }}` to the `docker` group'
   user:
     name: '{{ ansible_user }}'
@@ -18,5 +47,6 @@
     groups:
     - 'docker'
   become: yes
+  notify: 'reset_connection'
 
-- meta: 'reset_connection'
+- meta: 'flush_handlers'

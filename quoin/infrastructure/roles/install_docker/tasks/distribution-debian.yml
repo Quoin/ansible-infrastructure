@@ -28,16 +28,3 @@
   become: yes
   when: |
     ansible_machine == 'armv6l' or ansible_machine == 'armv7l'
-
-- name: 'Debian :: install Docker'
-  package:
-    name: '{{ qi_install_docker_docker_package }}'
-    state: 'present'
-  become: yes
-
-- name: 'Debian :: start Docker'
-  service:
-    name: 'docker'
-    enabled: yes
-    state: 'started'
-  become: yes
