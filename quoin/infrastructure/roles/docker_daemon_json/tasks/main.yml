@@ -5,3 +5,5 @@
     content: '{{ qi_docker_daemon_json_content }}'
   become: yes
   notify: 'restart_docker'
+
+- meta: 'flush_handlers'
