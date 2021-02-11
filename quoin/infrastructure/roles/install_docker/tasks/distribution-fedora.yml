@@ -11,16 +11,3 @@
   args:
     warn: no
   become: yes
-
-- name: 'Fedora :: install Docker'
-  package:
-    name: '{{ qi_install_docker_docker_package }}'
-    state: 'present'
-  become: yes
-
-- name: 'Fedora :: start Docker'
-  service:
-    name: 'docker'
-    enabled: yes
-    state: 'started'
-  become: yes
