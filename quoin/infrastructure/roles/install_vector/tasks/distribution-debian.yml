@@ -21,18 +21,3 @@
     filename: '/etc/apt/sources.list.d/timber-vector.list'
     repo: 'deb https://repositories.timber.io/public/vector/deb/debian {{ ansible_distribution_release }} main'
   become: yes
-
-- name: 'Debian :: install Vector'
-  package:
-    name: 'vector'
-    state: 'present'
-  become: yes
-
-- name: 'Debian :: start Vector'
-  service:
-    name: 'vector'
-    enabled: yes
-    state: 'started'
-  become: yes
-
-- meta: 'flush_handlers'

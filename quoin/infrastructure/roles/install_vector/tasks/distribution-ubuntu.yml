@@ -19,16 +19,3 @@
     filename: '/etc/apt/sources.list.d/timber-vector.list'
     repo: 'deb https://repositories.timber.io/public/vector/deb/ubuntu {{ ansible_distribution_release }} main'
   become: yes
-
-- name: 'Ubuntu :: install Vector'
-  package:
-    name: 'vector'
-    state: 'present'
-  become: yes
-
-- name: 'Ubuntu :: start Vector'
-  service:
-    name: 'vector'
-    enabled: yes
-    state: 'started'
-  become: yes
