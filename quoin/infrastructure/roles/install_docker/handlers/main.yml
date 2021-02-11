@@ -5,7 +5,7 @@
     name: 'docker'
     state: 'restarted'
   become: yes
-​
+
 - name: 'reset the Ansible connection'
   listen: 'reset_connection'
   meta: 'reset_connection'
