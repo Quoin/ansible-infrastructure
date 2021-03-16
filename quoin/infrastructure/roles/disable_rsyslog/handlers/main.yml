@@ -1,7 +1,7 @@
 ---
-- name: 'restart systemd-journal'
-  listen: 'restart_journal'
+- name: 'restart systemd-journald'
+  listen: 'restart_journald'
   ansible.builtin.service:
-    name: 'systemd-journal'
+    name: 'systemd-journald'
     state: 'restarted'
   become: yes
