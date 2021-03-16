@@ -15,13 +15,13 @@
     state: 'started'
   become: yes
 
-- name: 'disable rsyslog service'
-  ansible.builtin.service:
-    name: 'rsyslog'
-    enabled: no
-  become: yes
+  #- name: 'disable rsyslog service'
+  #  ansible.builtin.service:
+  #    name: 'rsyslog'
+  #    enabled: no
+  #  become: yes
 
-- name: 'stop rsyslog service'
+- name: 'disbale and stop rsyslog service'
   ansible.builtin.service:
     name: 'rsyslog'
     state: 'stopped'
