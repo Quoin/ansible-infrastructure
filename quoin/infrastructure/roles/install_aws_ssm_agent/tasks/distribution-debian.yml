@@ -1,0 +1,5 @@
+---
+- name: 'Debian :: install AWS SSM Agent'
+  ansible.builtin.get_url:
+    deb: 'https://s3.{{ aws_region }}.amazonaws.com/amazon-ssm-{{ aws_region }/latest/debian_amd64/amazon-ssm-agent.deb'
+  become: yes

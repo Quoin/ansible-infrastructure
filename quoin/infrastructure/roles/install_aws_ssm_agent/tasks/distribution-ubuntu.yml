@@ -1,0 +1,6 @@
+---
+- name: 'Ubuntu :: install AWS SSM Agent'
+  community.general.snap:
+    name: 'amazon-ssm-agent'
+    classic: yes
+  become: yes
