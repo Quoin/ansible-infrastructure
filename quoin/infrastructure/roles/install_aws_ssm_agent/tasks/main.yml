@@ -6,11 +6,3 @@
 - include_tasks: 'distribution-ubuntu.yml'
   when: |
     ansible_distribution == 'Ubuntu'
-
-- name: 'start AWS SSM Agent'
-  service:
-    name: 'amazon-ssm-agent'
-    enabled: yes
-    state: 'started'
-  become: yes
-
