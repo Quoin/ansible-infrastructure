@@ -16,7 +16,7 @@
 - name: 'Debian :: install Docker APT repository'
   apt_repository:
     repo: |
-      deb [arch=amd64] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable
+      deb https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable
   become: yes
   when: |
     ansible_machine != 'armv6l' and ansible_machine != 'armv7l'
