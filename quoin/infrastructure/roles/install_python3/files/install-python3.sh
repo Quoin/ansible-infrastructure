@@ -42,7 +42,7 @@ in
         in
             debian|raspbian|ubuntu)
                 apt-get update
-                apt-get install -y --no-install-recommends python python-apt
+                apt-get install -y --no-install-recommends python3 python3-apt
                 ;;
             centos|fedora|rhel)
                 if dnf --version > /dev/null 2>&1
